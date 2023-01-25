@@ -17,4 +17,6 @@ os.system("yt-dlp -f 'bv+ba' --merge-output-format 'mp4' -o '%(channel)s/%(title
 os.system("yt-dlp -f 'bv+ba' --merge-output-format 'mp4' -o '%(channel)s/%(title)s.%(ext)s' --downloader-args aria2c:'-x 16 -k 1M' ")
 
 # 中文,英语,英语(美),日语字幕 油管 MKV
-os.system("yt-dlp -f 'bv+ba' --write-subs --sub-langs 'zh.*,en.*,jp,fr,de,ko' --merge-output-format 'mkv' --downloader-args aria2c:'-x 16 -k 1M' ")
+os.system("yt-dlp -f 'bv+ba' --embed-subs --sub-langs 'zh.*,en.*,jp,fr,de,ko' --merge-output-format 'mkv' --downloader-args aria2c:'-x 16 -k 1M' ")
+
+os.system("yt-dlp -f 'bv+ba' --embed-subs --sub-langs 'zh.*,en.*,jp,fr,de,ko' --embed-thumbnail --embed-metadata --merge-output-format 'mkv' --external-downloader aria2c  --downloader-args aria2c:'-x 16 -k 1M ' https://www.youtube.com/watch?v=8lUgdf-zkQMM")
