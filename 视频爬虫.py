@@ -24,3 +24,5 @@ os.system("yt-dlp -f 'bv+ba' --embed-subs --sub-langs 'zh.*,en.*,jp,fr,de,ko' --
 os.system("yt-dlp -f 'bv+ba' --embed-thumbnail --embed-metadata --merge-output-format 'mp4' --external-downloader aria2c  --downloader-args aria2c:'-x 16 -k 1M' https://www.bilibili.com/video/BV11K411o7Gd/")
 
 os.system("yt-dlp -f 'bv+ba' --embed-subs --sub-langs 'zh.*,en.*,ja' --embed-thumbnail --embed-metadata --merge-output-format 'mkv' --external-downloader aria2c  --downloader-args aria2c:'-x 16 -k 1M' https://www.youtube.com/watch?v=e1xCOsgWG0M")
+
+
