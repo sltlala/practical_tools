@@ -1,8 +1,9 @@
 import json
-
+import os
 import yt_dlp
 from yt_dlp.postprocessor.common import PostProcessor
 
+os.chdir("E:/下载/视频")
 
 class MyLogger:
     def debug(self, msg):
@@ -45,8 +46,10 @@ ydl_opts = {
     'progress_hooks': [my_hook],
 }
 
+url = 'https://www.youtube.com/watch?v=BaW_jenozKc'
+
 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
     ydl.add_post_processor(MyCustomPP())
-    info = ydl.extract_info('https://www.youtube.com/watch?v=BaW_jenozKc')
+    info = ydl.extract_info(url)
     print(json.dumps(ydl.sanitize_info(info)))
 
