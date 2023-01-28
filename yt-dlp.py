@@ -42,6 +42,7 @@ ydl_opts = {
         'preferredcodec': 'mp3',
         'preferredquality': '192',
     }],
+    'ffmpeg-location':'E:\\下载\\程序\\ffmpeg\\bin',
     'logger': MyLogger(),
     'progress_hooks': [my_hook],
 }
