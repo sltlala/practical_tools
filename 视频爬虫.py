@@ -2,6 +2,7 @@ import yt_dlp
 import you_get
 import os
 
+url = ''
 
 os.chdir("E:/下载/视频")
 os.system('youtube-dl --write-sub --sub-lang en -f "bestvideo+bestaudio" -o "%(title)s.%(ext)s" ' + url)
