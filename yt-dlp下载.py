@@ -16,9 +16,10 @@ os.system("yt-dlp -f 'bv+ba' --merge-output-format 'mp4' -o '%(channel)s/%(title
 
 # 油管频道 有存档 MP4
 os.system("yt-dlp -f 'bv+ba' --merge-output-format 'mp4' -o '%(channel)s/%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --download-archive './%(channel)s/archive.txt'")
-
+# 油管音频 元数据 封面 FLAC
+os.system("yt-dlp -f 'ba' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' -o '%(title)s.%(ext)s' --recode-video 'mp3' --embed-thumbnail --embed-metadata")
 # 中文,英语,英语(美),日语字幕 油管 MKV
-os.system("yt-dlp -f 'bv+ba' --embed-subs --sub-langs 'zh.*,en.*,ja' --merge-output-format 'mkv' --downloader-args aria2c:'-x 16 -k 1M' ")
+os.system("yt-dlp -f 'bv+ba' --embed-subs --sub-langs 'zh.*,en.*,ja' --merge-output-format 'mkv' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' -o '%(title)s.%(ext)s'")
 
 os.system("yt-dlp -f 'bv+ba' --embed-subs --sub-langs 'zh.*,en.*,ja' --embed-thumbnail --embed-metadata --merge-output-format 'mkv' --external-downloader aria2c  --downloader-args aria2c:'-x 16 -k 1M ' https://www.youtube.com/watch?v=8lUgdf-zkQMM")
 # 中文,英语,日语字幕 vtt-->srt 油管 mkv 有存档
