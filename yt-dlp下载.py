@@ -34,7 +34,7 @@ os.system("yt-dlp -f 'bv+ba' --embed-subs --sub-langs 'zh.*,en.*,ja' --embed-thu
 os.system("yt-dlp https://www.youtube.com/watch?v=AfE3dq-cpLU -f 'bv+ba' --merge-output-format 'mp4'  --external-downloader 'aria2c' -o '%(title)s.%(ext)s' --downloader-args aria2c:'-x 16 -k 1M' --download-archive './%(channel)s/archive.txt'")
 
 # 推特视频下载 MP4
-os.system("  https://twitter.com/i/status/1621833713360281600") 
+os.system("yt-dlp -f 'bv+ba' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --merge-output-format 'mp4' https://twitter.com/i/status/1621833713360281600") 
 
 # B站视频列表 有存档 读cookie
 os.system("yt-dlp -f 'bv+ba' --merge-output-format 'mp4' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --download-archive 'archive.txt' --embed-thumbnail --embed-metadata --cookies-from-browser edge https://space.bilibili.com/172085/channel/collectiondetail?sid=1023078")
