@@ -4,6 +4,8 @@ import os
 
 url = ''
 
+#  $Env:http_proxy="http://127.0.0.1:3030";$Env:https_proxy="http://127.0.0.1:3030"
+
 os.chdir("E:/下载/视频")
 os.system('youtube-dl --write-sub --sub-lang en -f "bestvideo+bestaudio" -o "%(title)s.%(ext)s" ' + url)
 os.system('youtube-dl --write-auto-sub --sub-lang zh-Hans --skip-download -o "%(title)s.%(ext)s" ' + url)
@@ -40,4 +42,7 @@ os.system("yt-dlp -f 'bv+ba' -o '%(title)s.%(ext)s' --external-downloader aria2c
 os.system("yt-dlp -f 'bv+ba' --merge-output-format 'mp4' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --download-archive 'archive.txt' --embed-thumbnail --embed-metadata --cookies-from-browser edge https://space.bilibili.com/172085/channel/collectiondetail?sid=1023078")
 
 # ffmpeg命令 mp4转码HEVC 保留字幕
-os.system("ffmpeg -i input.mp4 -c:v hevc_nvenc -c:s copy -crf 18 -preset slow output.mp4")
+os.system("ffmpeg -i input.mp4 -c:v hevc_nvenc -c:s copy -crf 18 -preset slow output.mp4","-c:v h264_nvenc -b:a 256k -b:v 3000k")
+
+# 油管视频 封面 元数据 字幕 MP4
+os.system("yt-dlp -f 'bv+ba' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata https://www.youtube.com/watch?v=QIFzmD_9GBw")
