@@ -12,7 +12,7 @@ os.system('youtube-dl --write-auto-sub --sub-lang zh-Hans --skip-download -o "%(
 os.chdir("../")
 
 # 无字幕 腾讯 会员视频 MP4
-os.system("yt-dlp --merge-output-format 'mp4' --external-downloader 'aria2c' --cookies-from-browser edge --downloader-args aria2c:'-x 16 -k 1M' ")
+os.system("yt-dlp --merge-output-format 'mp4' --external-downloader 'aria2c' --cookies-from-browser edge --downloader-args aria2c:'-x 16 -k 1M' --embed-thumbnail --embed-metadata")
 # 无字幕 油管 频道全视频 MP4 频道+标题
 os.system("yt-dlp -f 'bv+ba' --merge-output-format 'mp4' -o '%(channel)s/%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' ")
 
@@ -46,3 +46,11 @@ os.system("ffmpeg -i input.mp4 -c:v hevc_nvenc -c:s copy -crf 18 -preset slow ou
 
 # 油管视频 封面 元数据 字幕 MP4
 os.system("yt-dlp -f 'bv+ba' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata https://www.youtube.com/watch?v=QIFzmD_9GBw")
+
+# twitch直播回放下载 
+# yt-dlp -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata https://www.twitch.tv/videos/1825868435 --cookies-from-browser chrome
+
+# 油管1080P AAC+AVC
+140+137
+
+# yt-dlp -f '140+137' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata --convert-subs srt --write-auto-subs
