@@ -36,7 +36,7 @@ os.system("yt-dlp -f 'bv+ba' --embed-subs --sub-langs 'zh.*,en.*,ja' --embed-thu
 os.system("yt-dlp https://www.youtube.com/watch?v=AfE3dq-cpLU -f 'bv+ba' --merge-output-format 'mp4'  --external-downloader 'aria2c' -o '%(title)s.%(ext)s' --downloader-args aria2c:'-x 16 -k 1M' --download-archive './%(channel)s/archive.txt'")
 
 # 推特视频下载 MP4
-os.system("yt-dlp -f 'bv+ba' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --merge-output-format 'mp4' --cookies-from-browser edge https://twitter.com/i/status/1621833713360281600") 
+os.system("yt-dlp -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --merge-output-format 'mp4' --cookies-from-browser edge https://twitter.com/i/status/1621833713360281600") 
 
 # B站视频列表 有存档 读cookie
 os.system("yt-dlp -f 'bv+ba' --merge-output-format 'mp4' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --download-archive 'archive.txt' --embed-thumbnail --embed-metadata --cookies-from-browser edge https://space.bilibili.com/172085/channel/collectiondetail?sid=1023078")
@@ -48,9 +48,14 @@ os.system("ffmpeg -i input.mp4 -c:v hevc_nvenc -c:s copy -crf 18 -preset slow ou
 os.system("yt-dlp -f 'bv+ba' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata https://www.youtube.com/watch?v=QIFzmD_9GBw")
 
 # twitch直播回放下载 
-# yt-dlp -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata https://www.twitch.tv/videos/1825868435 --cookies-from-browser chrome
+# yt-dlp -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata --cookies-from-browser chrome https://www.twitch.tv/videos/1825868435 
 
 # 油管1080P AAC+AVC
 140+137
 
 # yt-dlp -f '140+137' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata --convert-subs srt --write-auto-subs
+
+# xvideo批量下载 有存档 读cookie MP4
+# yt-dlp -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata --download-archive 'archive.txt' -a 'urls.txt' --cookies-from-browser chrome
+
+# yt-dlp -f 'ba+bv' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata  --cookies-from-browser edge --sub-format ttml --convert-subs ass --write-subs https://www.youtube.com/watch?v=KfZR9jVP6tw
