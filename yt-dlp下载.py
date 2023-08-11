@@ -51,11 +51,15 @@ os.system("yt-dlp -f 'bv+ba' -o '%(title)s.%(ext)s' --external-downloader aria2c
 # yt-dlp -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata --cookies-from-browser chrome https://www.twitch.tv/videos/1825868435 
 
 # 油管1080P AAC+AVC
-140+137
+# 140+137 
+# 137 avc │ video only
+# 140 https │ mp4a.40.2   │ audio only 
+# 312 m3u8  │ avc1.64002A │ video only
+# 299 https │ avc1.64002A │ video only
 
 # yt-dlp -f '140+137' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata --convert-subs srt --write-auto-subs
 
 # xvideo批量下载 有存档 读cookie MP4
 # yt-dlp -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata --download-archive 'archive.txt' -a 'urls.txt' --cookies-from-browser chrome
 
-# yt-dlp -f 'ba+bv' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata  --cookies-from-browser edge --sub-format ttml --convert-subs ass --write-subs https://www.youtube.com/watch?v=KfZR9jVP6tw
+# yt-dlp -f '137+140' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata  --cookies-from-browser edge --sub-format ttml --convert-subs ass --write-subs https://www.youtube.com/watch?v=KfZR9jVP6tw
