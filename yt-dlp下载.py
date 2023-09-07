@@ -63,3 +63,7 @@ os.system("yt-dlp -f 'bv+ba' -o '%(title)s.%(ext)s' --external-downloader aria2c
 # yt-dlp -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata --download-archive 'archive.txt' -a 'urls.txt' --cookies-from-browser chrome
 
 # yt-dlp -f '137+140' -o '%(title)s.%(ext)s' --external-downloader aria2c --downloader-args aria2c:'-x 16 -k 1M' --embed-subs --sub-langs 'zh.*,en.*,ja.*' --merge-output-format 'mp4'  --embed-thumbnail --embed-metadata  --cookies-from-browser edge --sub-format ttml --convert-subs ass --write-subs https://www.youtube.com/watch?v=KfZR9jVP6tw
+
+# .\bcdown export mc30125 --format zip --range 123-135 --output ./
+
+# .\bcdown fetch -r 1-135 mc30125
